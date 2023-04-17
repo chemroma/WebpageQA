@@ -38,10 +38,8 @@ user_input = get_text()
 
 placeholder = st.empty()
 input_ok = True
-for url in urls:
-    st.info(url)
-    if not uri_validator(url.strip()):
-        input_ok = False
+if not uri_validator(url.strip()):
+    input_ok = False
 
 if not input_ok:
     placeholder.error('please input a valid url.')
