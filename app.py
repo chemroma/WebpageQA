@@ -60,7 +60,8 @@ for url in urls:
 if not input_ok:
     st.error('please input a valid url.')
 
-if input_ok and len(api_key) != 0 and len(query) != 0:
+@st.cache
+def get_db(urls):
     loader = UnstructuredURLLoader(urls=urls)
     if len(loader.load()) == 0:
         st.error('Error when fetching url.')
@@ -75,6 +76,9 @@ if input_ok and len(api_key) != 0 and len(query) != 0:
 
     # Embedd your texts
     db = FAISS.from_documents(texts, embeddings)
+
+if input_ok and len(api_key) != 0 and len(query) != 0:
+    db = get_db()
     chain = RetrievalQAWithSourcesChain.from_llm(llm=OpenAI(temperature=0.7), retriever=db.as_retriever(), question_prompt=QUESTION_PROMPT, combine_prompt=COMBINE_PROMPT)
 
     if query:
