@@ -11,6 +11,7 @@ from langchain.document_loaders import UnstructuredURLLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
+from langchain.chains import RetrievalQAWithSourcesChain
 
 from prompt import QUESTION_PROMPT, COMBINE_PROMPT
 import os
@@ -69,10 +70,11 @@ if input_ok:
 
     # Embedd your texts
     db = FAISS.from_documents(texts, embeddings)
+    chain = RetrievalQAWithSourcesChain.from_llm(llm=OpenAI(temperature=0.7), retriever=db.as_retriever(), question_prompt=QUESTION_PROMPT, combine_prompt=COMBINE_PROMPT)
 
     if query:
-        # result = chain({"question": query})
-        output = query
+        result = chain({"question": query})
+        output = result['answer'].strip()
 
         st.session_state.past.append(query)
         st.session_state.generated.append(output)
