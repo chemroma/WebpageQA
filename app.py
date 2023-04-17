@@ -33,7 +33,7 @@ def get_api_key():
     return api_key
 
 def get_urls():
-    urls = st.text_input("Enter your url: ", key="url").split(',')
+    urls = st.text_input("Enter your url: ", key="url", on_change=lambda: st.session_state.input="").split(',')
     return urls
 
 def get_query():
