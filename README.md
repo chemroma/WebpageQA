@@ -6,6 +6,9 @@ Build with [langchain](https://github.com/hwchase17/langchain) and [Streamlit](h
 # Brief Introduction
 Enter a url, then ask!
 
+## Overall process
+Enter URL->Get web page content->Segment text->Vectorize text->Vectorize user question->Calculate similarity between user question and web page content->Extract text related to the question from the web page->Add the question and related text to the Prompt->Submit to LLM to get answer.
+
 ## Prerequisite
 - An openai api key
 - A webpage url
