@@ -1,22 +1,16 @@
 """Python file to serve as the frontend"""
+import os
+import sys
 import streamlit as st
 from streamlit_chat import message
-import faiss
-from langchain import OpenAI
-from langchain.chains import VectorDBQAWithSourcesChain
-import pickle
 from urllib.parse import urlparse
-
-from langchain.document_loaders import UnstructuredURLLoader, TextLoader
+from langchain import OpenAI
+from langchain.document_loaders import UnstructuredURLLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains import RetrievalQAWithSourcesChain
-
 from prompt import QUESTION_PROMPT, COMBINE_PROMPT
-
-import os
-import sys
 
 def uri_validator(x):
     try:
