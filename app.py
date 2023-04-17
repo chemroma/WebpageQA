@@ -39,7 +39,7 @@ user_input = get_text()
 placeholder = st.empty()
 input_ok = True
 for url in urls:
-    if not uri_validator(url):
+    if not uri_validator(url.strip()):
         input_ok = False
 
 if not input_ok:
