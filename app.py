@@ -39,7 +39,8 @@ if not input_ok:
     st.error('please input a valid url.', key='error_msg')
 
 if input_ok:
-    del st.session_state['error_msg']
+    if 'error_msg' in st.session_state:
+        del st.session_state['error_msg']
     if user_input:
         # result = chain({"question": user_input})
         output = user_input
