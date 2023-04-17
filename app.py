@@ -12,6 +12,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 
+from prompt import QUESTION_PROMPT, COMBINE_PROMPT
+
 def uri_validator(x):
     try:
         result = urlparse(x)
@@ -53,6 +55,17 @@ if not input_ok:
     st.error('please input a valid url.')
 
 if input_ok:
+    loader = UnstructuredURLLoader(urls=urls)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
+
+    # Split your docs into texts
+    texts = text_splitter.split_documents(loader.load())
+    # Get embedding engine ready
+    embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+
+    # Embedd your texts
+    db = FAISS.from_documents(texts, embeddings)
+
     if query:
         # result = chain({"question": query})
         output = query
