@@ -58,7 +58,7 @@ if len(urls) !=0 and not uri_validator(urls.strip()):
 if not input_ok:
     st.error('please input a valid url.')
 
-if input_ok:
+if input_ok and len(api_key) != 0 and len(query) != 0:
     loader = UnstructuredURLLoader(urls=urls)
     
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
