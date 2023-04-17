@@ -42,7 +42,7 @@ def get_urls():
     return urls
 
 def get_query():
-    input_text = st.text_input("Enter your OpenAI API key: ", key="input")
+    input_text = st.text_input("Enter your question: ", key="input")
     return input_text
 
 api_key = get_api_key()
@@ -59,6 +59,8 @@ if not input_ok:
     st.error('please input a valid url.')
 
 if input_ok and len(api_key) != 0 and len(query) != 0:
+    st.info(urls)
+    st.info(query)
     loader = UnstructuredURLLoader(urls=urls)
     
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
