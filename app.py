@@ -28,16 +28,18 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 
-def clear_query():
-    if 'query' in st.session_state:
+def clear_history():
+    if 'query' in st.session_state and 'past' in st.session_state and 'generated' in st.session_state:
         st.session_state.query = ''
+        st.session_state.past.clear()
+        st.session_state.generated.clear()
 
 def get_api_key():
     api_key = st.text_input("Enter your OpenAI API key: ", key="apikey")
     return api_key
 
 def get_urls():
-    urls = st.text_input("Enter your url: ", key="url", on_change=clear_query).split(',')
+    urls = st.text_input("Enter your url: ", key="url", on_change=clear_history).split(',')
     return urls
 
 def get_query():
