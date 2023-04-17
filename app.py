@@ -39,6 +39,7 @@ if not input_ok:
     placeholder.error('please input a valid url.')
 
 if input_ok:
+    st.info('url is ok')
     placeholder.empty()
     if user_input:
         # result = chain({"question": user_input})
