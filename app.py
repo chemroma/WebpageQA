@@ -5,7 +5,14 @@ import faiss
 from langchain import OpenAI
 from langchain.chains import VectorDBQAWithSourcesChain
 import pickle
-import validators
+from urllib.parse import urlparse
+
+def uri_validator(x):
+    try:
+        result = urlparse(x)
+        return all([result.scheme, result.netloc])
+    except:
+        return False
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Blendle Notion QA Bot", page_icon=":robot:")
@@ -32,7 +39,7 @@ user_input = get_text()
 placeholder = st.empty()
 input_ok = True
 for url in urls:
-    if not validators.url(url):
+    if not uri_validator(url):
         input_ok = False
 
 if not input_ok:
