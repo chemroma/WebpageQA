@@ -14,7 +14,7 @@ Enter URL->Get web page content->Segment text->Vectorize text->Vectorize user qu
 The overall process is shown in the above diagram, where the Local Documents refers to the web page content in this project.
 
 ## Prerequisite
-- An openai api key
+- An openai api key (if you don't have ,click [here](https://platform.openai.com/account/api-keys) to get one)
 - A webpage url
 - A question
 
