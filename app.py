@@ -54,7 +54,7 @@ for url in urls:
 if not input_ok:
     st.error('please input a valid url.')
 
-@st.cache
+@st.cache_data
 def get_db(urls):
     loader = UnstructuredURLLoader(urls=urls)
     if len(loader.load()) == 0:
