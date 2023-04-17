@@ -45,6 +45,8 @@ for url in urls:
 if not input_ok:
     placeholder.error('please input a valid url.')
 
+st.info(f'DEBUG: url is {input_ok}')
+
 if input_ok:
     st.info('url is ok')
     placeholder.empty()
