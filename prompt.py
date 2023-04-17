@@ -1,3 +1,5 @@
+from langchain import PromptTemplate
+
 question_prompt_template = """Use the following portion of a long document to see if any of the text is relevant to answer the question. 
 Return any relevant text verbatim.
 {context}
