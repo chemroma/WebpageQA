@@ -28,6 +28,7 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 
+# clear question and chat history when url updates
 def clear_history():
     if 'query' in st.session_state and 'past' in st.session_state and 'generated' in st.session_state:
         st.session_state.query = ''
