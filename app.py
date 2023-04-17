@@ -23,7 +23,7 @@ def get_urls():
 
 
 def get_text():
-    input_text = st.text_input("Enter your url: ", key="input")
+    input_text = st.text_input("Enter your OpenAI API key: ", key="input")
     return input_text
 
 urls = get_urls()
@@ -32,10 +32,11 @@ user_input = get_text()
 input_ok = True
 for url in urls:
     if not validators.url(url):
-        st.error('please input a valid url.')
+        err_msgs = st.error('please input a valid url.')
         input_ok = False
 
 if input_ok:
+    err_msgs.empty()
     if user_input:
         # result = chain({"question": user_input})
         output = user_input
