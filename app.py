@@ -46,7 +46,7 @@ urls = get_urls()
 query = get_query()
 
 input_ok = True
-if not urls.empty() and not uri_validator(urls.strip()):
+if len(urls) !=0 and not uri_validator(urls.strip()):
     input_ok = False
 
 if not input_ok:
