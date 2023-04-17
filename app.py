@@ -56,6 +56,7 @@ if not input_ok:
 
 if input_ok:
     loader = UnstructuredURLLoader(urls=urls)
+    
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
 
     # Split your docs into texts
