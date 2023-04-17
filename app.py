@@ -48,7 +48,7 @@ api_key = get_api_key()
 urls = get_urls()
 query = get_query()
 
-os.envioron['OPENAI_API_KEY'] = api_key
+os.environ['OPENAI_API_KEY'] = api_key
 
 input_ok = True
 if len(urls) !=0 and not uri_validator(urls.strip()):
