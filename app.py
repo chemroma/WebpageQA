@@ -29,14 +29,15 @@ def get_text():
 urls = get_urls()
 user_input = get_text()
 
+placeholder = st.empty()
 input_ok = True
 for url in urls:
     if not validators.url(url):
-        err_msgs = st.error('please input a valid url.')
+        placeholder = st.error('please input a valid url.')
         input_ok = False
 
 if input_ok:
-    err_msgs.empty()
+    placeholder.empty()
     if user_input:
         # result = chain({"question": user_input})
         output = user_input
