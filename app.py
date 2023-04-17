@@ -33,7 +33,7 @@ if user_input:
     #st.session_state.generated.append(output)
  
 message(user_input, is_user=True)  # align's the message to the right
-message(output)
+message(user_input)
     
 #if st.session_state["generated"]:
 
