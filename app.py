@@ -41,7 +41,7 @@ def get_query():
     input_text = st.text_input("Enter your OpenAI API key: ", key="input")
     return input_text
 
-api_key = api_key()
+api_key = get_api_key()
 urls = get_urls()
 query = get_query()
 
