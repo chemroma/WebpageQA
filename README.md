@@ -11,7 +11,7 @@ Enter URL->Get web page content->Segment text->Vectorize text->Vectorize user qu
 
 [![pLdqh.md.png](https://s1.imgbed.xyz/2023/04/17/pLdqh.md.png)](https://www.imgbed.com/image/pLdqh)
 
-The overall process is shown in the above diagram, where the Local Document refers to the web page content in this project.
+The overall process is shown in the above diagram, where the Local Documents refers to the web page content in this project.
 
 ## Prerequisite
 - An openai api key
@@ -21,5 +21,5 @@ The overall process is shown in the above diagram, where the Local Document refe
 You can try online demo [here](https://chemroma-webpageqa-app-teafso.streamlit.app/).
 
 # Todo
-- [] Optimizing code
-- [] Fix the problem of failure to retrieve certain web page content
+- [ ] Optimizing code
+- [ ] Fix the problem of failure to retrieve certain web page content
