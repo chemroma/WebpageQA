@@ -28,8 +28,8 @@ if user_input:
     # result = chain({"question": user_input})
     output = user_input
 
-    #st.session_state.past.append(user_input)
-    #st.session_state.generated.append(output)
+    st.session_state.past.append(user_input)
+    st.session_state.generated.append(output)
 
 # message(user_input, is_user=True)  # align's the message to the right
 # message(user_input)
