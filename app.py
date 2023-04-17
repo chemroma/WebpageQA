@@ -62,6 +62,7 @@ if input_ok and len(api_key) != 0 and len(query) != 0:
     st.info(urls)
     st.info(query)
     loader = UnstructuredURLLoader(urls=urls)
+    st.info(len(loader.load()))
     
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
 
