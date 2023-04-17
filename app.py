@@ -22,18 +22,18 @@ def get_text():
     input_text = st.text_input("Enter your url: ", key="input")
     return input_text
 
+while True:
+    user_input = get_text()
 
-user_input = get_text()
+    if user_input:
+        # result = chain({"question": user_input})
+        output = user_input
 
-if user_input:
-    # result = chain({"question": user_input})
-    output = user_input
+        #st.session_state.past.append(user_input)
+        #st.session_state.generated.append(output)
 
-    #st.session_state.past.append(user_input)
-    #st.session_state.generated.append(output)
- 
-message(user_input, is_user=True)  # align's the message to the right
-message(user_input)
+    message(user_input, is_user=True)  # align's the message to the right
+    message(user_input)
     
 #if st.session_state["generated"]:
 
