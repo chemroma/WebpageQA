@@ -36,11 +36,10 @@ for url in urls:
         input_ok = False
 
 if not input_ok:
-    st.error('please input a valid url.', key='error_msg')
+    placeholder.error('please input a valid url.')
 
 if input_ok:
-    if 'error_msg' in st.session_state:
-        del st.session_state['error_msg']
+    placeholder.empty()
     if user_input:
         # result = chain({"question": user_input})
         output = user_input
