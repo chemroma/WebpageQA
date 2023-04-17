@@ -5,6 +5,7 @@ import faiss
 from langchain import OpenAI
 from langchain.chains import VectorDBQAWithSourcesChain
 import pickle
+import validator
 
 # From here down is all the StreamLit UI.
 st.set_page_config(page_title="Blendle Notion QA Bot", page_icon=":robot:")
@@ -16,26 +17,37 @@ if "generated" not in st.session_state:
 if "past" not in st.session_state:
     st.session_state["past"] = []
 
-message("I'm a robot, please first input your url, then ask me.")
+def get_urls():
+    urls = st.text_input("Enter your url: ", key="url")
+    return urls
+
 
 def get_text():
     input_text = st.text_input("Enter your url: ", key="input")
     return input_text
 
+urls = get_urls()
 user_input = get_text()
 
-if user_input:
-    # result = chain({"question": user_input})
-    output = user_input
+input_ok = True
+for url in urls:
+    if not validator.url(url):
+        st.error('please input a valid url.')
+        input_ok = False
 
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+if input_ok:
+    if user_input:
+        # result = chain({"question": user_input})
+        output = user_input
 
-# message(user_input, is_user=True)  # align's the message to the right
-# message(user_input)
-    
-if st.session_state["generated"]:
+        st.session_state.past.append(user_input)
+        st.session_state.generated.append(output)
 
-   for i in range(len(st.session_state["generated"]) - 1, -1, -1):
-       message(st.session_state["generated"][i], key=str(i))
-       message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
+    # message(user_input, is_user=True)  # align's the message to the right
+    # message(user_input)
+        
+    if st.session_state["generated"]:
+
+    for i in range(len(st.session_state["generated"]) - 1, -1, -1):
+        message(st.session_state["generated"][i], key=str(i))
+        message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
