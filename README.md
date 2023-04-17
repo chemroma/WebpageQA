@@ -1,5 +1,5 @@
 # Webpage QA Bot
-Build with [langchain](https://github.com/hwchase17/langchain) and [Streamlit](https://streamlit.io/).
+Build with [langchain](https://github.com/hwchase17/langchain) and [Streamlit](https://streamlit.io/). Inspired by [hwchase17/notion-qa](https://github.com/hwchase17/notion-qa).
 
 ![pLCyK.png](https://s1.imgbed.xyz/2023/04/17/pLCyK.png)
 
