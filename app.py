@@ -76,6 +76,7 @@ def get_db(urls):
 
     # Embedd your texts
     db = FAISS.from_documents(texts, embeddings)
+    return db
 
 if input_ok and len(api_key) != 0 and len(query) != 0:
     db = get_db()
