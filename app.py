@@ -33,11 +33,13 @@ placeholder = st.empty()
 input_ok = True
 for url in urls:
     if not validators.url(url):
-        placeholder = st.error('please input a valid url.')
         input_ok = False
 
+if not input_ok:
+    st.error('please input a valid url.', key='error_msg')
+
 if input_ok:
-    placeholder.empty()
+    del st.session_state['error_msg']
     if user_input:
         # result = chain({"question": user_input})
         output = user_input
