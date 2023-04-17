@@ -38,7 +38,7 @@ def get_api_key():
     return api_key
 
 def get_urls():
-    urls = st.text_input("Enter your url: ", key="url")
+    urls = st.text_input("Enter your url: ", key="url").split(',')
     return urls
 
 def get_query():
@@ -52,8 +52,9 @@ query = get_query()
 os.environ['OPENAI_API_KEY'] = api_key
 
 input_ok = True
-if len(urls) !=0 and not uri_validator(urls.strip()):
-    input_ok = False
+for url in urls:
+    if len(url) !=0 and not uri_validator(url.strip()):
+        input_ok = False
 
 if not input_ok:
     st.error('please input a valid url.')
