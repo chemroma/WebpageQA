@@ -14,7 +14,9 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.chains import RetrievalQAWithSourcesChain
 
 from prompt import QUESTION_PROMPT, COMBINE_PROMPT
+
 import os
+import sys
 
 def uri_validator(x):
     try:
@@ -61,6 +63,9 @@ if not input_ok:
 
 if input_ok and len(api_key) != 0 and len(query) != 0:
     loader = UnstructuredURLLoader(urls=urls)
+    if len(loader.load()):
+        st.error('Error when fetching url.')
+        sys.exit(1)
     
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=50)
 
