@@ -18,7 +18,7 @@ if "past" not in st.session_state:
 
 
 def get_text():
-    input_text = st.text_input("You: ", "Hello, how are you?", key="input")
+    input_text = st.text_input("Enter your url: ", key="input")
     return input_text
 
 
