@@ -13,6 +13,7 @@ from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
 
 from prompt import QUESTION_PROMPT, COMBINE_PROMPT
+import os
 
 def uri_validator(x):
     try:
@@ -46,6 +47,8 @@ def get_query():
 api_key = get_api_key()
 urls = get_urls()
 query = get_query()
+
+os.envioron['OPENAI_API_KEY'] = api_key
 
 input_ok = True
 if len(urls) !=0 and not uri_validator(urls.strip()):
