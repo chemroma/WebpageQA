@@ -79,7 +79,7 @@ def get_db(urls):
     return db
 
 if input_ok and len(api_key) != 0 and len(query) != 0:
-    db = get_db()
+    db = get_db(urls)
     chain = RetrievalQAWithSourcesChain.from_llm(llm=OpenAI(temperature=0.7), retriever=db.as_retriever(), question_prompt=QUESTION_PROMPT, combine_prompt=COMBINE_PROMPT)
 
     if query:
