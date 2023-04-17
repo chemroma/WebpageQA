@@ -63,7 +63,7 @@ if not input_ok:
 
 if input_ok and len(api_key) != 0 and len(query) != 0:
     loader = UnstructuredURLLoader(urls=urls)
-    if len(loader.load()):
+    if len(loader.load()) == 0:
         st.error('Error when fetching url.')
         sys.exit(1)
     
