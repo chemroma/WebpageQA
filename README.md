@@ -21,5 +21,5 @@ The overall process is shown in the above diagram, where the Local Document refe
 You can try online demo [here](https://chemroma-webpageqa-app-teafso.streamlit.app/).
 
 # Todo
-[] Optimizing code
-[] Fix the problem of failure to retrieve certain web page content
+- [] Optimizing code
+- [] Fix the problem of failure to retrieve certain web page content
