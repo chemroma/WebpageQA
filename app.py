@@ -82,9 +82,6 @@ if input_ok and len(api_key) != 0 and len(query) != 0:
 
         st.session_state.past.append(query)
         st.session_state.generated.append(output)
-
-    # message(query, is_user=True)  # align's the message to the right
-    # message(query)
         
     if st.session_state["generated"]:
         for i in range(len(st.session_state["generated"]) - 1, -1, -1):
