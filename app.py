@@ -55,11 +55,11 @@ os.environ['OPENAI_API_KEY'] = api_key
 
 input_ok = True
 for url in urls:
-    if len(url) !=0 and not uri_validator(url.strip()):
+    if len(url) != 0 and not uri_validator(url.strip()):
         input_ok = False
 
 if not input_ok:
-    st.error('please input a valid url.')
+    st.error('Please input a valid url.')
 
 @st.cache_data
 def get_db(urls):
